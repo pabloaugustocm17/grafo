@@ -4,7 +4,9 @@ import java.util.List;
 
 public class Util {
     
+    private static int ID_GRAFO = -1;
     private static int ID = -1;
+    private static String nome_grafo = "GRAFO ";
 
     public static void ImprimiMensagemSemQuebraLinha(String mensagem){
 
@@ -40,6 +42,11 @@ public class Util {
 
     }
    
-    
+    public static String getNomeGrafo(){
+
+        ID_GRAFO++;
+        return nome_grafo + ID_GRAFO;
+
+    }
 
 }
