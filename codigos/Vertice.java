@@ -86,12 +86,26 @@ public class Vertice {
 
     }
 
-    public void visitarAresta(){
+    public void visitarVertice(){
 
+        if(!this.visitado){
+            this.visitado = true;
+        }else{
+            Util.ImprimiErro("Vértice já visitado");
+        }
 
 
     }
 
+    public void limparVisita(){
+
+        if(this.visitado){
+            this.visitado = false;
+        }else{
+            Util.ImprimiErro("Vértice não foi visitado ainda");
+        }
+
+    }
 
     /* Getters and Setters */
 
