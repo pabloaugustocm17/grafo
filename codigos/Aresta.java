@@ -18,6 +18,10 @@ class Aresta{
         init(-1, false, 0);
     }
 
+    Aresta(int destino){
+        init(destino, false, peso);
+    }
+
     public int getDestino(){
         return this.destino;
     }
