@@ -37,13 +37,14 @@ public class Vertice {
 
         if(!Util.IsListaArestasVazia(this.arestas)){
 
-            if(existeAresta(destino) != null){
+            if(existeAresta(destino) == null){
                 
                 addAresta(arestaAdd);
                 return true;
 
             }else{
 
+                Util.ImprimiErro("Já existe uma aresta nesse destino");
                 return false;
 
             }
@@ -74,12 +75,10 @@ public class Vertice {
 
             }
 
-            Util.ImprimiErro("Aresta não existe");
             return null;
         
         }else{
 
-            Util.ImprimiErro("Lista vazia");
             return null;
 
         }
@@ -117,6 +116,10 @@ public class Vertice {
         return this.visitado;
     }
 
+    public int getID(){
+        return this.id;
+    }
+
     /* Util */
 
     
@@ -131,13 +134,12 @@ public class Vertice {
 
         if(!Util.IsListaArestasVazia(this.arestas)){
 
-            Util.ImprimiMensagem("Vertice (" + this.id + "): ");
-            Util.ImprimiMensagemSemQuebraLinha("Arestas: ");
+            Util.ImprimiMensagemSemQuebraLinha("Vertice (" + this.id + "): ");
 
             for(int i = 0; i < this.getGrau(); i++){
 
                 if(i == this.getGrau()-1){
-                    Util.ImprimiMensagemSemQuebraLinha("{" + this.arestas.get(i).getDestino() + "}");
+                    Util.ImprimiMensagem("{" + this.arestas.get(i).getDestino() + "}");
                 }else{
                     Util.ImprimiMensagemSemQuebraLinha("{" + this.arestas.get(i).getDestino() + "}, ");
                 }
@@ -146,7 +148,7 @@ public class Vertice {
 
         }else{
 
-            Util.ImprimiErro("Lista vazia");
+            Util.ImprimiErro("Vértice (" + this.id + "): Vazio");
 
         }
 
