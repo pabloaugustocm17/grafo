@@ -103,16 +103,24 @@ public class Grafo {
 
     public boolean addAresta(int origem, int destino){
 
-        if(this.vertices.size() < 2){
+        if(this.vertices.size() == 0){
             Util.ImprimiErro("Grafo não possui vértices suficientes");
             return false;
         }
 
         for(int i = 0; i < this.vertices.size(); i++){
             
-            if(this.vertices.get(i).getID() == origem){
-                this.vertices.get(i).addAresta(destino);
+            if(!existeAresta(destino, origem)){
+
+                if(this.vertices.get(i).getID() == origem){
+                    this.vertices.get(i).addAresta(destino);
+                }
+
+            }else{
+                Util.ImprimiErro("Aresta já existe");
             }
+
+            
 
         }
 
@@ -131,6 +139,27 @@ public class Grafo {
         if(this.vertices.size() == 0){
             System.out.println("NULL");
         }
+
+    }
+
+    public boolean existeAresta(int destino, int origem){
+        
+        for(int i = 0; i < this.vertices.size(); i++){
+
+            if(this.vertices.get(i).getID() == origem){
+
+                if (this.vertices.get(i).existeAresta(destino) != null){
+                    return true;
+                }else{
+                    return false;
+                }
+
+            }
+
+        }
+
+        return false;
+
 
     }
 
